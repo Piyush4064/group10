@@ -21,7 +21,7 @@ public class UserDtls {
     private String name;
     private String email;
     private String password;
-    private String about;
-    private String role;
+    private String profile;
+    private String Notes[];
 
 }

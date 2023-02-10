@@ -31,9 +31,8 @@ public class HomeController {
     public String saveUser(@ModelAttribute UserDtls user, HttpSession session){
 
      userRepository.save(user);
-   System.out.println(user);
+     System.out.println(user);
 
-   //   session.setAttribute("msg", "Registration Successful");
         return "redirect:/signup";
     }
 
