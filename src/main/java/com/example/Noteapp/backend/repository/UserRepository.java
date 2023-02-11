@@ -1,8 +1,9 @@
 package com.example.Noteapp.backend.repository;
 import com.example.Noteapp.backend.entity.UserDtls;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserRepository extends JpaRepository<UserDtls,Integer> {
- public UserDtls findByEmail(String email);
+    UserDtls findByEmail(String email);
 }
