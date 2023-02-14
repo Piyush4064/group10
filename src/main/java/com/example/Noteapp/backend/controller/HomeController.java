@@ -18,6 +18,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 
 @Controller
@@ -48,6 +50,7 @@ public class HomeController {
                            HttpSession session) {
 
         try {
+//            System.out.println(user);
             user.setPassword(passwordEncode.encode(user.getPassword()));
             user.setProfile("USER");
 
@@ -56,10 +59,17 @@ public class HomeController {
                 // handle if file is empty
                 System.out.println("No image is selected.");
             } else {
-                user.setProfile_img(file.getOriginalFilename());
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HHmmss");
+                LocalDateTime now = LocalDateTime.now();
+                String dt = dtf.format(now);
+//                System.out.println(dtf.format(now));
+
+                user.setProfile_img(dt+"-"+file.getOriginalFilename());
 //                System.out.println(new ClassPathResource("").getFile().getAbsolutePath());
-                File newFile = new ClassPathResource("./static/img").getFile();
-                Path path = Paths.get(newFile.getAbsolutePath() + "-" + file.getOriginalFilename());
+                File newFile = new ClassPathResource("./static").getFile();
+//                System.out.println(newFile.getAbsolutePath());
+                Path path = Paths.get(newFile.getAbsolutePath()+"/img/"+dt+"-"+file.getOriginalFilename());
+
 
                 Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
                 System.out.println("Image is uploaded.");

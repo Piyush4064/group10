@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -23,5 +24,9 @@ display:block;
 
 
 </form>
+<div class="container">
+<!--    <div>Hello</div>-->
+    <img th:src="@{'img/'+${user.profile_img}}" alt="" width="200px" height="200px">
+</div>
 </body>
 </html>
