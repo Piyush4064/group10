@@ -1,0 +1,81 @@
+.App {
+    text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    background-color: #282c34;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    font-size: calc(6px + 1vmin);
+    padding-top: 5%;
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+.App .editor {
+    width: 900px;
+    margin-left: 20%;
+    margin-top: 50px;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.App-header img {
+    width: 200px;
+    border-radius: 20%;
+    margin-bottom: 50px;
+}
+
+button {
+    background-color: #000; /* Green */
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.styleCard {
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px #ccc;
+    color: #253b56;
+    margin: 12px 0px;
+    width: 900px;
+    align-items: center;
+}
+
+.styleCardContent {
+    padding: 4px 16px 20px 16px;
+}
+
+.styleDescription {
+    font-size: 14;
+    margin: 8px 0 0 0;
+}
+
+.notes {
+    width: 60%;
+    margin: 0 auto;
+    /* padding-left: 20%; */
+}
