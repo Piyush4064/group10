@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Editor } from "react-draft-wysiwyg";
-import { EditorState, convertToRaw, convertFromRaw } from "draft-js";
+import { EditorState, convertToRaw } from "draft-js";
 
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import draftToHtml from "draftjs-to-html";
 import "./TextEditor.css";
 
 export default class TextEditor extends Component {
@@ -47,10 +46,7 @@ export default class TextEditor extends Component {
                         placeholder="Start Writting"
                     />
                 </div>
-                <button
-                    className="button"
-                    onClick={this.saveButtonHandler.bind(this)}
-                >
+                <button className="button" onClick={this.saveButtonHandler.bind(this)}>
                     Save
                 </button>
                 {/* <textarea

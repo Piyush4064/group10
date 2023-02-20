@@ -9,14 +9,14 @@ export default class Card extends React.Component {
             <div style={{ width: this.props.width + "px" }}>
                 <div className="styleCard">
                     <div className="styleCardContent">
-                        <p className="styleDescription">
+                        <div className="styleDescription">
                             <Editor
                                 editorState={EditorState.createWithContent(
                                     this.props.item
                                 )}
                                 readOnly={true}
                             />
-                        </p>
+                        </div>
                     </div>
                 </div>
             </div>

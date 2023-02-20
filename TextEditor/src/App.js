@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
 import TextEditor from "./components/TextEditor";
-import { EditorState, convertToRaw, convertFromRaw } from "draft-js";
-import draftToHtml from "draftjs-to-html";
+import { convertFromRaw } from "draft-js";
 import Card from "./components/Card";
-import { Editor } from "react-draft-wysiwyg";
+import ImportExport from "./components/ImportExport";
 
 function App() {
-    const [flag, setFlag] = useState(true);
+    const [flag, setFlag] = useState(false);
 
     const handleClick = () => {
         setFlag((prevState) => {
@@ -25,7 +24,7 @@ function App() {
     async function getNotes() {
         const response = await fetch("http://localhost:8000/blogs");
         const obj = await response.json();
-        setNotes(JSON.stringify(obj));  
+        setNotes(JSON.stringify(obj));
     }
     getNotes();
     let noteTemplate = [],
@@ -41,7 +40,10 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <img src="https://images.unsplash.com/photo-1676407591026-824246b4a102?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" />
+                <img
+                    src="https://images.unsplash.com/photo-1676407591026-824246b4a102?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                    alt="Random"
+                />
                 <button onClick={handleClick}>Notes</button>
                 <button onClick={handleClick}>Create Note</button>
             </header>
@@ -49,6 +51,7 @@ function App() {
                 editorTemplate
             ) : (
                 <div className="notes">
+                    <ImportExport />
                     {noteTemplate.map((item) => {
                         return <Card item={item} />;
                     })}

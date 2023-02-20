@@ -79,3 +79,22 @@ button {
     margin: 0 auto;
     /* padding-left: 20%; */
 }
+
+.importExport {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+    align-items: center;
+}
+
+.input-group {
+    font-size: 20px;
+    border: 1px solid black;
+    padding: 3px;
+}
+
+input[type="file"] {
+    font-size: 20px;
+    border: 1px solid black;
+    margin-right: 4px;
+}
